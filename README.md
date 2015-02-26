@@ -86,3 +86,18 @@ For django beta i did:
 	$ git checkout -b 1.8b2 v1.8b2
 	$ cd ..
 	$ pip install -e django
+
+I've been unable to use Python3 due the default package sqlite3
+included does not support dynamic extensions loading. In order to
+obtain it, i have to compile it with the configure flag:
+`--enable-loadable-sqlite-extensions`. With pyenv, i'll have to define
+this option in the environment variable `CONFIGURE_OPTS` as it is
+instructed in the step 5 of
+[this section](https://github.com/yyuu/pyenv#basic-github-checkout) of
+pyenv documentation.
+
+But right now, [pyenv is having dificulties to download the Python3
+package](https://github.com/yyuu/pyenv/issues/200#issuecomment-76057124).
+
+One alternative could be to install pysqlite, but sadly
+[it is a Python2 only project](http://stackoverflow.com/questions/23181197/install-pysqlite-in-virtualenv-with-python3-support).
